@@ -20,7 +20,7 @@ export const mantineTheme: MantineThemeOverride = {
     }),
     Paper: Paper.extend({
       defaultProps: {
-        radius: "md",
+        radius: "lg",
       },
     }),
   },
