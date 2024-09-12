@@ -1,0 +1,18 @@
+#libraries installed by pnpm
+/node_modules
+
+#prod build
+/dist
+
+# testing
+/coverage
+
+# do not commit any .env files to git, except for the .env.example file
+.env*
+!.env.example
+
+# typescript
+*.tsbuildinfo
+
+#linters
+.eslintcache

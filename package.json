@@ -1,0 +1,73 @@
+{
+  "name": "stormloop-janus-web-client",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview",
+    "test": "echo 'Not Implemented'",
+    "tsc": "tsc",
+    "format": "prettier",
+    "format:check": "pnpm format --check .",
+    "format:write": "pnpm format --write .",
+    "lint": "eslint --cache",
+    "lint:all": "pnpm lint .",
+    "static": "npm-run-all --parallel -c tsc lint:all format:check",
+    "validate": "npm-run-all static test",
+    "prepare": "husky",
+    "check-commits-since-master": "npx commitlint --from HEAD~$(git rev-list --count HEAD ^dev) --to HEAD"
+  },
+  "dependencies": {
+    "@mantine/code-highlight": "^7.12.1",
+    "@mantine/core": "^7.12.1",
+    "@mantine/dates": "^7.12.1",
+    "@mantine/form": "^7.12.1",
+    "@mantine/hooks": "^7.12.1",
+    "@mantine/modals": "^7.12.1",
+    "@mantine/notifications": "^7.12.1",
+    "@tabler/icons-react": "^3.12.0",
+    "@tanstack/react-query": "5.51.23",
+    "@ts-rest/core": "^3.49.3",
+    "@ts-rest/react-query": "^3.49.3",
+    "axios": "^1.7.3",
+    "case": "^1.6.3",
+    "dayjs": "^1.11.12",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.26.0",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^19.5.0",
+    "@commitlint/config-conventional": "^19.5.0",
+    "@faker-js/faker": "^8.4.1",
+    "@ravnhq/eslint-config": "2.0.0",
+    "@trivago/prettier-plugin-sort-imports": "4.3.0",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "@vitejs/plugin-react": "^4.3.1",
+    "@vitest/coverage-v8": "^2.0.5",
+    "axios-mock-adapter": "^2.0.0",
+    "eslint": "^8.57.0",
+    "globals": "^15.9.0",
+    "husky": "^9.1.6",
+    "lint-staged": "^15.2.10",
+    "npm-run-all": "4.1.5",
+    "postcss": "^8.4.41",
+    "postcss-preset-mantine": "^1.17.0",
+    "postcss-simple-vars": "^7.0.1",
+    "prettier": "^2.8.3",
+    "typescript": "^5.5.3",
+    "vite": "^5.4.0",
+    "vitest": "^2.0.5"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx,css,scss,html,md,yml}": [
+      "pnpm format --write"
+    ],
+    "*.json,.{eslintrc,prettierrc}": [
+      "pnpm format --write --parser json"
+    ]
+  }
+}

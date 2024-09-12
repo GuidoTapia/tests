@@ -1,0 +1,20 @@
+version: 1
+frontend:
+  phases:
+    preBuild:
+      commands:
+        - npm install -g pnpm
+        - pnpm install --frozen-lockfile
+    build:
+      commands:
+        # Inject environment variable into .env file
+        - echo "VITE_JANUS_API_1_ORIGIN=$VITE_JANUS_API_1_ORIGIN" >> .env
+        - echo "VITE_SERVICE_ALB_LISTENER_PATH_PREFIX=$VITE_SERVICE_ALB_LISTENER_PATH_PREFIX" >> .env
+        - pnpm run build
+  artifacts:
+    baseDirectory: dist
+    files:
+      - "**/*"
+  cache:
+    paths:
+      - node_modules/**/*
