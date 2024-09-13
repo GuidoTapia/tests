@@ -24,5 +24,5 @@ jobs:
         with:
           node-version: 16
           cache: "pnpm"
-      - run: pnpm --frozen-lockfile
+      - run: pnpm install --frozen-lockfile
       - run: npx commitlint --from ${{ github.event.pull_request.base.sha }} --to ${{ github.event.pull_request.head.sha }} --verbose
