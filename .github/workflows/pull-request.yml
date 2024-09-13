@@ -22,7 +22,7 @@ jobs:
           version: 9
       - uses: actions/setup-node@v3
         with:
-          node-version: 16
+          node-version: 18
           cache: "pnpm"
       - run: pnpm install --frozen-lockfile
       - run: npx commitlint --from ${{ github.event.pull_request.base.sha }} --to ${{ github.event.pull_request.head.sha }} --verbose
